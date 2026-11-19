@@ -1,0 +1,10 @@
+---
+# Master Ansible Playbook: Todo API Infrastructure Provisioning
+# Course Code: 25CIAEC59 | Gautam Rajesh (USN: 1MS24CI045)
+- name: Provision and Configure Todo REST API Service
+  hosts: app_servers
+  become: true
+  gather_facts: true
+
+  roles:
+    - todo_app

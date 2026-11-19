@@ -1,0 +1,10 @@
+---
+# Handlers for todo_app role
+- name: Reload systemd daemon
+  systemd:
+    daemon_reload: yes
+
+- name: Restart todo-app service
+  systemd:
+    name: "{{ app_name }}"
+    state: restarted

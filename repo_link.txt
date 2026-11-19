@@ -1,0 +1,22 @@
+DevOps Course Project Repository
+Course Code: 25CIAEC59 / 25CYAEC59
+Student: Gautam Rajesh
+USN: 1MS24CI045
+Department: Computer Science and Engineering (Artificial Intelligence and Machine Learning)
+Institution: Ramaiah Institute of Technology, Bangalore
+
+Repository Link:
+https://github.com/gautamrajesh/devops-todo-microservice-pipeline
+
+Collaborator Access:
+Course Coordinator and Faculty Evaluators have been invited as collaborators with read and review access.
+
+Repository Structure:
+- app/             : Python Flask REST API microservice with /health and /metrics
+- tests/           : Pytest automated test suite (11 test cases)
+- Jenkinsfile      : Multi-stage Declarative CI Pipeline (Lint, Test, Package, Versioning, Archive)
+- .github/         : GitHub Actions CI workflow (.github/workflows/ci.yml)
+- ansible/         : Ansible Playbook, inventory, and todo_app role (tasks, handlers, templates, vars)
+- Dockerfile       : Multi-stage container build (builder & hardened minimal runtime)
+- k8s/             : Kubernetes manifests (ConfigMap, Deployment, Service, Scaling & Rollback scripts)
+- README.md        : Comprehensive execution and reproduction guide

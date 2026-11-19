@@ -1,0 +1,20 @@
+[Unit]
+Description=DevOps Todo Management REST API Service
+After=network.target
+
+[Service]
+Type=simple
+User={{ app_user }}
+Group={{ app_group }}
+WorkingDirectory={{ app_dir }}
+Environment="PORT={{ app_port }}"
+Environment="APP_ENV={{ app_env }}"
+Environment="LOG_LEVEL={{ log_level }}"
+ExecStart={{ app_dir }}/venv/bin/gunicorn --bind 0.0.0.0:{{ app_port }} --workers 3 app.app:app
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
