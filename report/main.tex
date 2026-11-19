@@ -569,7 +569,7 @@ ENTRYPOINT ["gunicorn"]
 CMD ["--bind", "0.0.0.0:5000", "--workers", "3", "app.app:app"]
 \end{lstlisting}
 
-\subsubsection*{Step 3: Kubernetes Deployment, Service & ConfigMap}
+\subsubsection*{Step 3: Kubernetes Deployment, Service \& ConfigMap}
 The application is deployed with externalized configuration and health probes:
 \begin{lstlisting}[language=bash]
 # k8s/configmap.yaml
