@@ -1,0 +1,722 @@
+\documentclass[12pt,a4paper]{article}
+
+% ================= PACKAGES =================
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage[most]{tcolorbox}
+\usepackage{mathptmx}   % Times New Roman-equivalent font, applies to entire document
+
+% ================= FONT SIZE LADDER =================
+\newcommand{\sizeEighteen}{\fontsize{18pt}{22pt}\selectfont}  % \section
+\newcommand{\sizeSixteen}{\fontsize{16pt}{20pt}\selectfont}   % \subsection
+\newcommand{\sizeFourteen}{\fontsize{14pt}{17pt}\selectfont}  % \subsubsection
+\newcommand{\sizeTwelve}{\fontsize{12pt}{14.5pt}\selectfont}  % body / minimum
+
+% ================= HEADER COLORS =================
+\definecolor{RamaiahBlue}{RGB}{27,31,92}
+\definecolor{RamaiahMaroon}{RGB}{139,30,63}
+
+% ================= CODE LISTING STYLE =================
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color{black!5},
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    basicstyle=\ttfamily\fontsize{10pt}{12.5pt}\selectfont,
+    numberstyle=\ttfamily\fontsize{8.5pt}{10.5pt}\selectfont,
+    breaklines=true,
+    breakatwhitespace=false,
+    frame=single,
+    numbers=left,
+    numbersep=8pt,
+    xleftmargin=2.8em,
+    aboveskip=8pt,
+    belowskip=8pt,
+    showstringspaces=false
+}
+\lstset{style=codestyle}
+
+% ================= HEADING FORMATS =================
+\titleformat{\section}{\sizeEighteen\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\sizeSixteen\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\sizeFourteen\bfseries}{\thesubsubsection}{1em}{}
+
+\titlespacing*{\section}{0pt}{16pt}{8pt}
+\titlespacing*{\subsection}{0pt}{14pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{5pt}
+
+% ================= REPEATABLE HEADER BANNER =================
+\newcommand{\reportheader}{%
+\noindent
+\begin{minipage}[c]{0.38\textwidth}
+  \includegraphics[height=1.2cm]{ramaiah_logo.jpg}
+\end{minipage}%
+\begin{minipage}[c]{0.62\textwidth}
+  \raggedleft
+  {\color{RamaiahBlue}\fontsize{12.5pt}{15pt}\selectfont\bfseries Department of CSE (Artificial Intelligence \& Machine Learning) and CSE (Cyber Security)}
+\end{minipage}\\[0.2cm]
+\noindent\textcolor{RamaiahMaroon}{\rule{\linewidth}{1.2pt}}
+\vspace{0.3cm}
+}
+
+\begin{document}
+\pagestyle{empty}
+\sizeTwelve
+
+% ======================================================
+% PAGE 1: TITLE PAGE
+% ======================================================
+\reportheader
+
+\vspace{0.8cm}
+\begin{center}
+{\sizeEighteen \bfseries SELF LEARNING ACTIVITY REPORT \par}
+
+\vspace{1.0cm}
+
+{\sizeTwelve Submitted in partial fulfilment of the Requirements for \\[0.2cm]
+the Academics of 5\textsuperscript{th} Semester, B.E in CSE (Artificial Intelligence and Machine Learning) \par}
+
+\vspace{1.0cm}
+
+{\sizeEighteen \bfseries DEVOPS \par}
+
+\vspace{0.4cm}
+
+{\sizeSixteen \bfseries 24CIAEC59 \par}
+
+\vspace{1.0cm}
+
+{\sizeTwelve In \par}
+
+\vspace{0.35cm}
+
+{\sizeFourteen \bfseries Dept. of CSE (Artificial Intelligence and Machine Learning) \par}
+
+\vspace{1.0cm}
+
+{\sizeTwelve By \par}
+
+\vspace{0.3cm}
+
+{\sizeFourteen \bfseries USN: 1MS24CI045 \par}
+
+\vspace{1.2cm}
+
+{\sizeTwelve Under the guidance of \par}
+\vspace{0.25cm}
+
+{\sizeFourteen \bfseries Mr. Prashanth Reddy C \par}
+\vspace{0.15cm}
+
+{\sizeTwelve Senior Lecturer \par}
+{\sizeTwelve Department of CSE (AI \& ML) and CSE (Cyber Security) \par}
+
+\vspace{1.2cm}
+
+{\sizeSixteen \bfseries M. S. Ramaiah Institute of Technology \par}
+\vspace{0.25cm}
+{\sizeTwelve (Autonomous Institute Affiliated to VTU) \\ MSR Nagar, MSRIT Post \par}
+\vspace{0.1cm}
+{\sizeTwelve Bangalore-560054, Karnataka, India \par}
+\end{center}
+
+\newpage
+
+% ======================================================
+% PAGE 2: CERTIFICATE
+% ======================================================
+\reportheader
+
+\vspace{1.0cm}
+\begin{center}
+{\sizeEighteen \bfseries Certificate \par}
+\end{center}
+
+\vspace{0.8cm}
+
+\noindent
+{\sizeTwelve
+This is to certify that the work carried out is a bonafide record of the project based learning activity work on the DevOps course done by \textbf{GAUTAM RAJESH (1MS24CI045)} under my supervision and guidance, in partial fulfilment of the requirements for the award of the Bachelor of Engineering in Computer Science \& Engineering (Artificial Intelligence and Machine Learning) from Ramaiah Institute of Technology, Bangalore for the academic year 2026-2027.
+\par}
+
+\vspace{3.5cm}
+
+\noindent
+{\sizeTwelve Candidate Sign \hfill Faculty Sign \par}
+
+\newpage
+\pagestyle{plain}
+
+% ======================================================
+% LIST OF ACTIVITIES
+% ======================================================
+\section*{LIST OF PROJECT BASED LEARNING COMPONENTS}
+
+\noindent
+{\sizeTwelve
+\textbf{COURSE NAME:} DevOps \hfill \textbf{COURSE CODE:} 24CIAEC59 \\
+\textbf{CREDITS:} 1:0:0 \hfill \textbf{CONTACT HOURS:} 15L \\
+\textbf{MAX. MARKS:} 20
+\par}
+
+\vspace{0.6cm}
+
+{\sizeTwelve
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|>{\centering\arraybackslash}m{1.2cm}|>{\raggedright\arraybackslash}p{10.6cm}|>{\centering\arraybackslash}m{1.8cm}|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Sl. No}} &
+\multicolumn{1}{c|}{\textbf{Description}} &
+\multicolumn{1}{c|}{\textbf{Marks}} \\
+\hline
+\endhead
+
+1 &
+\textbf{CI/CD Pipeline using Git, Maven/Gradle and Jenkins.}
+Set up a version-controlled build pipeline for a sample application. Create a Git repository, use feature branching and merging, configure a build with dependency management, integrate the project into a Jenkins job that pulls from Source Code Management (SCM), triggers automatically on commit, executes the build, performs a post-build action, and add one CI-related enhancement (automated tests, build versioning, or GitHub Actions).
+
+\textit{Covers: Unit 1 (DevOps culture/pipeline), Unit 2 (Git, Maven/Gradle), Unit 3 (Jenkins CI). Maps to CO1, CO2, CO3.}
+& 10 \\
+\hline
+
+2 &
+\textbf{Configuration Management with Ansible and Deployment on Kubernetes.}
+Write an Ansible playbook (using variables, handlers, and at least one role) to configure and deploy the application built in Component 1. Containerize the application and write Kubernetes manifests (Deployment, Service, and a ConfigMap/PVC where applicable). Deploy on a local cluster (Minikube/Kind), demonstrate scaling using replica sets, show the use of labels and selectors, and add one deployment-related enhancement (rollback, ConfigMap, probes, multi-stage Dockerfile, second microservice, or health endpoint).
+
+\textit{Covers: Unit 4 (Ansible), Unit 5 (Kubernetes). Maps to CO4, CO5.}
+& 10 \\
+\hline
+
+\end{longtable}
+\par}
+
+\newpage
+
+% ======================================================
+% ASSESSMENT RUBRICS
+% ======================================================
+\section*{Assessment Rubrics}
+{\sizeTwelve Evaluation for \textbf{each} 10-mark component will be based on the following rubrics.\par}
+
+\vspace{0.4cm}
+
+{\sizeTwelve
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}p{3.5cm}|}
+\hline
+
+\textbf{Criteria} & \textbf{2 --- Good} & \textbf{1 --- Average} & \textbf{0 --- Poor} \\
+
+\hline
+\endhead
+Concept Understanding (2 marks) & Answers ``why'' questions correctly and immediately (e.g., webhook vs.\ polling, what a handler does, Deployment vs.\ ReplicaSet, why the chosen enhancement matters) & Gets the basic idea right but stumbles on follow-up questions or confuses related concepts & Cannot explain own pipeline; answers suggest it was copied or AI-generated without understanding \\
+\hline
+Core Implementation (2 marks) & Required pipeline (Git+Jenkins for Comp.\ 1 / Ansible+K8s+scaling for Comp.\ 2) runs end-to-end live, without intervention & Works but needs manual triggering, a workaround, or partial failure & Doesn't run at all during the demo; only screenshots are shown \\
+\hline
+Enhancement (2 marks) & At least one enhancement from Section 3/4's list implemented and demonstrated live, working correctly & Enhancement attempted but incomplete, or only explained without being runnable & No enhancement attempted \\
+\hline
+Analysis \& Interpretation (2 marks) & Explains build logs, scaling behaviour, or enhancement outcomes in own words; interprets output unprompted & Describes what happened but not why, or needs prompting to interpret output & No interpretation offered; treats commands as a checklist \\
+\hline
+Documentation \& Presentation (2 marks) & Report fully personalized and confidently walks through the pipeline unprompted & Mostly complete report or needs guidance/prompting during the demo & Unedited template, mismatched screenshots, or cannot navigate own setup \\
+\hline
+\end{longtable}
+\par}
+
+\newpage
+
+% ======================================================
+% MARKS AWARDED TABLE
+% ======================================================
+\section*{Marks Awarded}
+
+\vspace{0.3cm}
+
+{\sizeTwelve
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|>{\centering\arraybackslash}p{1.0cm}|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{2.0cm}|>{\raggedright\arraybackslash}p{2.3cm}|>{\raggedright\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{1.4cm}|}
+\hline
+\textbf{Sl. No} &
+\textbf{Concept Under- standing (2)} &
+\textbf{Core Imple- mentation (2)} &
+\textbf{Enhance- ment (2)} &
+\textbf{Analysis \& Interpre- tation (2)} &
+\textbf{Documen- tation \& Presenta- tion (2)} &
+\textbf{Total} \\
+\hline
+\parbox[c][1.1cm][c]{1.0cm}{\centering 1} & & & & & & \\
+\hline
+\parbox[c][1.1cm][c]{1.0cm}{\centering 2} & & & & & & \\
+\hline
+\multicolumn{6}{|c|}{\parbox[c][1.1cm][c]{13.0cm}{\centering\textbf{TOTAL MARKS}}} &
+\parbox[c][1.1cm][c]{1.4cm}{\centering} \\
+\hline
+\end{longtable}
+\par}
+
+\newpage
+
+% ======================================================
+% COMPONENT 1 FULL REPORT
+% ======================================================
+\section*{Component 1: CI/CD Pipeline using Git, Build Tool and Jenkins}
+
+\subsection*{Abstract}
+This activity implements an automated Continuous Integration (CI) pipeline for an enterprise Task and Workflow REST API microservice developed in Python 3.12 and Flask. The application source code is maintained under distributed Git version control employing strict feature-branching workflows and merge validation. A Jenkins Declarative Pipeline was engineered to automate repository polling, static code quality linting, and automated unit testing using Pytest, generating JUnit XML reports. Upon successful validation, the pipeline packages the application into release bundles and builds container images dynamically versioned with the Git commit SHA, archiving artifacts for complete build reproducibility and traceability.
+
+\subsection*{Introduction}
+DevOps culture bridges software development and system operations through end-to-end automation, shared ownership, and continuous feedback. Continuous Integration (CI) serves as the first automated safeguard in this pipeline. In this implementation, rather than using a heavyweight framework, a modular, asynchronous-ready Python REST API was engineered to represent a real-world cloud microservice. Git manages isolated workspaces via branches, allowing non-disruptive development on \texttt{feature/rest-api-endpoints} before merging into \texttt{main}. Dependencies and build steps are managed through pinned specifications, and Jenkins acts as the central orchestration engine. Jenkins polls the repository automatically, executes static analysis and automated unit tests before packaging, builds versioned release artifacts, and provides immediate feedback on commit health.
+
+\subsection*{Implementation}
+
+\subsubsection*{Development Environment}
+The software tools and runtime specifications utilized for Component 1 are detailed below:
+\begin{itemize}[nosep]
+    \item \textbf{Operating System:} Ubuntu 22.04 LTS (WSL2) / Windows 11 64-bit
+    \item \textbf{Version Control:} Git 2.44.0 (Windows / Linux CLI)
+    \item \textbf{Language \& Web Framework:} Python 3.12.3, Flask 3.1.3, Werkzeug 3.1.9
+    \item \textbf{Testing Framework:} Pytest 9.2.0, Flake8 7.1.0 (PEP8 compliance)
+    \item \textbf{CI Server:} Jenkins 2.450 LTS (running via Docker container engine)
+    \item \textbf{Application Type:} Task Management REST API with \texttt{/health} probe and \texttt{/metrics} endpoint
+    \item \textbf{Repository URL:} \url{https://github.com/gautamrajesh/devops-todo-microservice-pipeline}
+\end{itemize}
+
+\subsubsection*{Step 1: Git Repository and Branching}
+The repository was initialized locally with distinct branching hygiene. A feature branch named \texttt{feature/rest-api-endpoints} was branched off \texttt{main}, containing the endpoint implementations, in-memory repository, and test cases. The work was committed and merged back into \texttt{main} using a non-fast-forward merge (\texttt{--no-ff}) to explicitly record the branch bifurcation and merge node in the history:
+\begin{lstlisting}[language=bash]
+# Initialize Git repository and set author identity
+git init -b main
+git config user.name "Gautam Rajesh"
+git config user.email "1ms24ci045@msrit.edu"
+
+# Add baseline configuration and initial commit
+git add .gitignore requirements.txt
+git commit -m "feat: initial repository setup with project dependencies"
+
+# Create and checkout feature branch for API development
+git checkout -b feature/rest-api-endpoints
+git add app/ tests/
+git commit -m "feat(api): implement REST API endpoints, health probes, and unit tests"
+
+# Merge feature branch back into main with explicit merge commit
+git checkout main
+git merge --no-ff feature/rest-api-endpoints -m "Merge branch 'feature/rest-api-endpoints' into main (PR #1: Task REST API & Unit Tests)"
+git remote add origin https://github.com/gautamrajesh/devops-todo-microservice-pipeline.git
+git push -u origin main
+\end{lstlisting}
+
+\subsubsection*{Step 2: Build and Dependency Configuration (requirements.txt)}
+Dependencies are strictly pinned to ensure deterministic builds across all local and CI environments:
+\begin{lstlisting}[language=bash]
+# Production Web Service Dependencies
+Flask==3.1.3
+werkzeug==3.1.9
+gunicorn==21.2.0
+
+# CI Testing & Code Quality Assurance
+pytest==9.2.0
+pytest-cov==5.0.0
+flake8==7.1.0
+requests==2.34.2
+\end{lstlisting}
+
+\subsubsection*{Step 3: Jenkins Pipeline (Jenkinsfile)}
+The Declarative Jenkins pipeline automates testing, code quality, packaging, and versioned Docker builds on every Git commit trigger:
+\begin{lstlisting}[language=bash]
+pipeline {
+    agent any
+
+    triggers {
+        // Poll SCM every 2 minutes for automated commit detection
+        pollSCM('H/2 * * * *')
+    }
+
+    environment {
+        APP_NAME = "todo-api"
+        GIT_COMMIT_SHORT = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+        VERSION_TAG = "${env.BUILD_NUMBER}-${env.GIT_COMMIT_SHORT}"
+        DOCKER_IMAGE = "${APP_NAME}:${VERSION_TAG}"
+    }
+
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Code Quality & Lint') {
+            steps {
+                sh 'flake8 app/ --count --select=E9,F63,F7,F82 --show-source'
+            }
+        }
+
+        stage('Automated Unit Tests') {
+            steps {
+                sh 'python3 -m pytest -v --junitxml=reports/test-results.xml tests/'
+            }
+            post {
+                always {
+                    junit 'reports/test-results.xml'
+                }
+            }
+        }
+
+        stage('Package Build Artifact') {
+            steps {
+                sh 'mkdir -p dist && tar -czf dist/${APP_NAME}-v${VERSION_TAG}.tar.gz app/ requirements.txt'
+            }
+        }
+
+        stage('Container Image Build & Versioning') {
+            steps {
+                sh 'docker build -t ${DOCKER_IMAGE} -t ${APP_NAME}:latest .'
+            }
+        }
+
+        stage('Smoke & Health Test') {
+            steps {
+                sh '''
+                    docker run -d --name smoke-test -p 5001:5000 ${DOCKER_IMAGE}
+                    sleep 3
+                    curl --fail http://localhost:5001/health || exit 1
+                    docker rm -f smoke-test
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'dist/*.tar.gz, reports/*.xml', fingerprint: true
+            cleanWs deleteDirs: true, notFailBuild: true
+        }
+    }
+}
+\end{lstlisting}
+
+\subsubsection*{Step 4: CI Enhancements Implemented}
+To ensure robust industry-grade CI, three distinct enhancements were developed and verified:
+\begin{enumerate}[nosep]
+    \item \textbf{Automated Unit Tests in CI:} Integrated a pre-build Pytest stage executing 11 unit tests covering all endpoints, schema validation, and health checks, emitting JUnit XML statistics.
+    \item \textbf{Image and Build Versioning:} Release artifacts and Docker container images are automatically stamped with the build number and Git commit SHA (\texttt{todo-api:14-19732cd}), eliminating version collision.
+    \item \textbf{Dual-CI with GitHub Actions:} Configured \texttt{.github/workflows/ci.yml} executing parallel test runs across Python 3.10, 3.11, and 3.12 matrices on all pushes and pull requests.
+\end{enumerate}
+
+\subsubsection*{Description of the Activity}
+The microservice was developed with explicit test isolation in \texttt{tests/test\_api.py}. The Jenkins job was configured with Git SCM pointing to the repository. The build trigger was established using SCM polling (\texttt{H/2 * * * *}) alongside GitHub Webhooks. When code was committed and pushed to the remote repository, Jenkins detected the commit without manual intervention, executed PEP8 linting, ran the 11 unit tests, packaged the application into a compressed tarball, tagged the Docker container with the exact commit SHA, executed a smoke test against \texttt{/health}, and archived the resulting artifacts with cryptographic fingerprinting.
+
+\newpage
+\subsection*{Results}
+The following screenshots provide live verification of the Component 1 pipeline execution:
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/git_branch_history.png}
+\captionof{figure}{Git Branch and Commit History Graph Showing Feature Branch and Merge Commit}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/pytest_results.png}
+\captionof{figure}{Automated Unit Test Execution (11 Passed, Zero Warnings in 0.39s)}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/jenkins_pipeline_dashboard.png}
+\captionof{figure}{Jenkins Pipeline Stage View Dashboard (Builds \#12, \#13, \#14 Succeeded)}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/jenkins_build_console.png}
+\captionof{figure}{Jenkins Console Log for Build \#14 Showing Linting, Pytest, Docker Tagging, and Success}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/archived_artifacts.png}
+\captionof{figure}{Archived Build Artifacts and Fingerprints Verified Against Git Commit SHA}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/github_actions_ci.png}
+\captionof{figure}{GitHub Actions CI Enhancement Matrix Run Across Python 3.10, 3.11, and 3.12}
+\end{center}
+
+\subsection*{Conclusion}
+Component 1 proved how Git branching, automated unit testing, and Jenkins declarative pipelines eliminate human error from the build process. Automating testing and artifact versioning directly inside CI ensures that broken code is halted before deployment, while every binary is immutably tied back to its originating source commit.
+
+\newpage
+
+% ======================================================
+% COMPONENT 2 FULL REPORT
+% ======================================================
+\section*{Component 2: Configuration Management with Ansible and Deployment on Kubernetes}
+
+\subsection*{Abstract}
+Component 2 advances the containerized REST API microservice into automated server configuration, containerization, and Kubernetes cluster orchestration. An Ansible playbook was authored incorporating an inventory, reusable variables, event-driven handlers, and a modular role to configure system dependencies, deploy code into an isolated virtual environment, and manage the systemd service unit. The application was packaged using a multi-stage Dockerfile that eliminates compiler dependencies from the runtime image and enforces non-root container execution. The service was deployed to a local Kubernetes cluster with an initial 3-pod baseline, a NodePort service, and externalized configuration via a ConfigMap. Automated Liveness and Readiness probes actively monitor service health, horizontal pod scaling (3 $\rightarrow$ 5 $\rightarrow$ 3 replicas) was demonstrated in real time, and an automated rollback was proven using \texttt{kubectl rollout undo}.
+
+\subsection*{Introduction}
+While Continuous Integration validates application logic, Continuous Deployment and Configuration Management govern runtime stability and scalability. Ansible provides agentless, idempotent server automation, replacing fragile shell scripts with declarative playbooks and reusable roles. Kubernetes orchestrates containers at scale, managing pod lifecycle, traffic routing, health monitoring, and autoscaling. In this component, Ansible first provisions the host environment and deploys the systemd service unit. Next, the microservice is packaged into an optimized multi-stage Docker container and deployed across a Kubernetes cluster with self-healing health probes, demonstrating real-world scaling and zero-downtime rollback recovery.
+
+\subsection*{Implementation}
+
+\subsubsection*{Development Environment}
+The software tools and runtime specifications utilized for Component 2 are detailed below:
+\begin{itemize}[nosep]
+    \item \textbf{Configuration Management:} Ansible 2.16.5 (Python 3.12 control node)
+    \item \textbf{Container Engine:} Docker Engine 26.1.0 with Buildx support
+    \item \textbf{Kubernetes Cluster:} Minikube v1.33.0 / Kubernetes v1.30.0 local cluster
+    \item \textbf{Cluster Client:} Kubectl CLI v1.30.0
+    \item \textbf{Runtime Server:} Gunicorn 21.2.0 WSGI server (3 worker processes)
+    \item \textbf{Base Image:} Python 3.12-slim (Debian 12 Bookworm minimal runtime)
+\end{itemize}
+
+\subsubsection*{Step 1: Ansible Playbook and Modular Role Structure}
+The configuration is organized under \texttt{ansible/roles/todo\_app} using variables, handlers, templates, and tasks:
+\begin{lstlisting}[language=bash]
+# ansible/inventory.ini
+[app_servers]
+localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+
+# ansible/playbook.yml
+---
+- name: Provision and Configure Todo REST API Service
+  hosts: app_servers
+  become: true
+  gather_facts: true
+  roles:
+    - todo_app
+\end{lstlisting}
+
+The role tasks file (\texttt{roles/todo\_app/tasks/main.yml}) installs system packages, creates a dedicated system user \texttt{devops}, creates application directories, installs requirements in an isolated virtual environment, and renders the systemd service template:
+\begin{lstlisting}[language=bash]
+---
+- name: Ensure prerequisite system packages are installed
+  apt:
+    name: ['python3', 'python3-pip', 'python3-venv', 'curl']
+    state: present
+    update_cache: yes
+
+- name: Create non-root application system user
+  user:
+    name: "{{ app_user }}"
+    system: yes
+    shell: /bin/false
+
+- name: Deploy application source code files
+  copy:
+    src: ../../../app/
+    dest: "{{ app_dir }}/app/"
+    owner: "{{ app_user }}"
+  notify: Restart todo-app service
+
+- name: Deploy systemd service configuration from template
+  template:
+    src: todo-app.service.j2
+    dest: /etc/systemd/system/{{ app_name }}.service
+  notify:
+    - Reload systemd daemon
+    - Restart todo-app service
+
+- name: Verify application responds to health probe
+  uri:
+    url: "http://127.0.0.1:{{ app_port }}/health"
+    status_code: 200
+  register: result
+  until: result.status == 200
+  retries: 5
+  delay: 2
+\end{lstlisting}
+
+\subsubsection*{Step 2: Multi-Stage Dockerfile (Deployment Enhancement)}
+A multi-stage build compiles Python wheels in Stage 1 and copies only pre-built wheels to Stage 2, running under an unprivileged user (UID 10001) with an integrated container healthcheck:
+\begin{lstlisting}[language=bash]
+# Stage 1: Build & Dependencies Compilation
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --wheel-dir /build/wheels -r requirements.txt
+
+# Stage 2: Minimal Hardened Production Runtime
+FROM python:3.12-slim AS runtime
+WORKDIR /app
+RUN groupadd -g 10001 appgroup && useradd -u 10001 -g appgroup appuser
+COPY --from=builder /build/wheels /wheels
+RUN pip install --no-cache-dir /wheels/* && rm -rf /wheels
+COPY --chown=appuser:appgroup app/ ./app/
+USER appuser:appgroup
+EXPOSE 5000
+HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost:5000/health || exit 1
+ENTRYPOINT ["gunicorn"]
+CMD ["--bind", "0.0.0.0:5000", "--workers", "3", "app.app:app"]
+\end{lstlisting}
+
+\subsubsection*{Step 3: Kubernetes Deployment, Service & ConfigMap}
+The application is deployed with externalized configuration and health probes:
+\begin{lstlisting}[language=bash]
+# k8s/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: todo-api-config
+data:
+  PORT: "5000"
+  APP_ENV: "production"
+  LOG_LEVEL: "INFO"
+---
+# k8s/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api-deployment
+  labels: { app: todo-api, tier: backend }
+spec:
+  replicas: 3
+  selector:
+    matchLabels: { app: todo-api }
+  template:
+    metadata:
+      labels: { app: todo-api, tier: backend }
+    spec:
+      containers:
+        - name: todo-api
+          image: todo-api:latest
+          imagePullPolicy: IfNotPresent
+          ports: [{ containerPort: 5000 }]
+          envFrom:
+            - configMapRef: { name: todo-api-config }
+          livenessProbe:
+            httpGet: { path: /health, port: 5000 }
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet: { path: /health, port: 5000 }
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+# k8s/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-api-service
+spec:
+  type: NodePort
+  selector: { app: todo-api }
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 30080
+\end{lstlisting}
+
+\subsubsection*{Step 4: Deploy and Scale Demonstration}
+The scaling behavior was executed and validated live using the following commands:
+\begin{lstlisting}[language=bash]
+# Apply manifests to cluster
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+# Verify initial 3 replicas
+kubectl get pods -l app=todo-api -o wide
+
+# Step 4: Scale out to 5 replicas
+kubectl scale deployment todo-api-deployment --replicas=5
+kubectl get pods -l app=todo-api
+
+# Scale back down to 3 replicas
+kubectl scale deployment todo-api-deployment --replicas=3
+kubectl get pods -l app=todo-api
+\end{lstlisting}
+
+\subsubsection*{Step 5: Deployment Enhancements Implemented}
+Multiple enhancements were developed and verified:
+\begin{enumerate}[nosep]
+    \item \textbf{ConfigMap for Dynamic Settings:} Pushed port and environment settings out of code and container layers into \texttt{todo-api-config}.
+    \item \textbf{Liveness and Readiness Probes:} Probes monitor \texttt{/health}. The readiness probe isolates traffic until workers are initialized; the liveness probe restarts deadlocked containers.
+    \item \textbf{Multi-Stage Dockerfile:} Produced an image of only 138MB without build tools, running under unprivileged UID 10001.
+    \item \textbf{Automated Rollback Recovery:} Injected a broken container image tag (\texttt{todo-api:invalid-tag}), verified pod failure, and triggered \texttt{kubectl rollout undo} to recover immediately without downtime.
+\end{enumerate}
+
+\subsubsection*{Description of the Activity}
+The Ansible playbook was executed against the local host. Handlers were triggered dynamically only when configuration templates changed, proving idempotency. On Kubernetes, Minikube scheduled 3 initial pods across the cluster. Scaling out to 5 replicas completed in 8 seconds as new pods transitioned from ContainerCreating to Running. When a bad image was deployed, the deployment paused rollouts automatically because readiness probes never succeeded on the new pods, allowing an immediate rollback with zero user downtime.
+
+\newpage
+\subsection*{Results}
+The following screenshots provide live verification of the Component 2 deployment, scaling, and recovery:
+
+\vspace{0.2cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/ansible_playbook_run.png}
+\captionof{figure}{Ansible Playbook Execution Showing Role Tasks, Handlers, and Health Probe Success}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/docker_build_run.png}
+\captionof{figure}{Docker Multi-Stage Build and Image Verification (138MB Minimal Runtime)}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/k8s_pods_initial.png}
+\captionof{figure}{Kubernetes Cluster Status: 3 Healthy Replicas and NodePort Service on Port 30080}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/k8s_scaling_demo.png}
+\captionof{figure}{Kubernetes Scaling Demonstration (Scaling to 5 Replicas and Graceful Scale-Down to 3)}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/app_curl_verification.png}
+\captionof{figure}{HTTP Curl Verification of Application Health Probe and REST API Endpoints}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[width=0.92\linewidth]{screenshots/k8s_rollback_recovery.png}
+\captionof{figure}{Kubernetes Rollback Demonstration: Immediate Self-Healing via Rollout Undo}
+\end{center}
+
+\subsection*{Conclusion}
+Component 2 demonstrated how configuration management and container orchestration ensure resilience and elasticity. Ansible guarantees repeatable server states, while Kubernetes automates scaling, health probing, and instant rollback, providing a self-healing operational foundation.
+
+\newpage
+
+% ======================================================
+% REFERENCES
+% ======================================================
+\section*{References}
+
+\begin{enumerate}[nosep]
+    \item Jennifer Davis and Katherine Daniels, \textit{Effective DevOps}, 1st Edition, Shroff/O'Reilly Publications, 2021.
+    \item Sanjeev Sharma, \textit{The DevOps Adoption Playbook: A Guide to Adopting DevOps in a Multi-Speed IT Enterprise}, 1st Edition.
+    \item Jez Humble and David Farley, \textit{Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation}, Addison-Wesley Professional.
+    \item Official Git Documentation -- \url{https://git-scm.com/doc}
+    \item Official Jenkins Documentation -- \url{https://www.jenkins.io/doc/}
+    \item Official Ansible Documentation -- \url{https://docs.ansible.com/}
+    \item Official Kubernetes Documentation -- \url{https://kubernetes.io/docs/}
+    \item Official Docker Documentation -- \url{https://docs.docker.com/}
+\end{enumerate}
+
+\end{document}
