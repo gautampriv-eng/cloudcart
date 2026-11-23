@@ -13,36 +13,37 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{setspace}
-\usepackage{caption}
-\usepackage[most]{tcolorbox}
-\usepackage{mathptmx}   % Times New Roman-equivalent font, applies to entire document
+\usepackage{mathptmx}
 
-% ================= FONT SIZE LADDER =================
-\newcommand{\sizeEighteen}{\fontsize{18pt}{22pt}\selectfont}  % \section
-\newcommand{\sizeSixteen}{\fontsize{16pt}{20pt}\selectfont}   % \subsection
-\newcommand{\sizeFourteen}{\fontsize{14pt}{17pt}\selectfont}  % \subsubsection
-\newcommand{\sizeTwelve}{\fontsize{12pt}{14.5pt}\selectfont}  % body / minimum
+% ================= FONT SIZE DEFINITIONS =================
+\newcommand{\sizeEighteen}{\fontsize{18pt}{22pt}\selectfont}
+\newcommand{\sizeSixteen}{\fontsize{16pt}{20pt}\selectfont}
+\newcommand{\sizeFourteen}{\fontsize{14pt}{17pt}\selectfont}
+\newcommand{\sizeTwelve}{\fontsize{12pt}{15pt}\selectfont}
 
 % ================= HEADER COLORS =================
 \definecolor{RamaiahBlue}{RGB}{27,31,92}
 \definecolor{RamaiahMaroon}{RGB}{139,30,63}
+\definecolor{CodeBg}{RGB}{248,249,250}
+\definecolor{CodeBorder}{RGB}{218,224,233}
 
-% ================= CODE LISTING STYLE =================
+% ================= LISTINGS FORMAT =================
 \lstdefinestyle{codestyle}{
-    backgroundcolor=\color{black!5},
+    backgroundcolor=\color{CodeBg},
     commentstyle=\color{green!50!black},
-    keywordstyle=\color{blue},
-    stringstyle=\color{orange},
-    basicstyle=\ttfamily\fontsize{10pt}{12.5pt}\selectfont,
-    numberstyle=\ttfamily\fontsize{8.5pt}{10.5pt}\selectfont,
+    keywordstyle=\color{blue!80!black}\bfseries,
+    stringstyle=\color{orange!80!black},
+    basicstyle=\ttfamily\fontsize{9.5pt}{11.5pt}\selectfont,
+    numberstyle=\ttfamily\fontsize{8.5pt}{10.5pt}\selectfont\color{gray},
     breaklines=true,
     breakatwhitespace=false,
     frame=single,
+    rulecolor=\color{CodeBorder},
     numbers=left,
-    numbersep=8pt,
-    xleftmargin=2.8em,
-    aboveskip=8pt,
-    belowskip=8pt,
+    numbersep=6pt,
+    xleftmargin=2.2em,
+    aboveskip=4pt,
+    belowskip=4pt,
     showstringspaces=false
 }
 \lstset{style=codestyle}
@@ -52,9 +53,9 @@
 \titleformat{\subsection}{\sizeSixteen\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\sizeFourteen\bfseries}{\thesubsubsection}{1em}{}
 
-\titlespacing*{\section}{0pt}{16pt}{8pt}
-\titlespacing*{\subsection}{0pt}{14pt}{6pt}
-\titlespacing*{\subsubsection}{0pt}{12pt}{5pt}
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{6pt}{3pt}
 
 % ================= REPEATABLE HEADER BANNER =================
 \newcommand{\reportheader}{%
@@ -64,10 +65,32 @@
 \end{minipage}%
 \begin{minipage}[c]{0.62\textwidth}
   \raggedleft
-  {\color{RamaiahBlue}\fontsize{12.5pt}{15pt}\selectfont\bfseries Department of CSE (Artificial Intelligence \& Machine Learning) and CSE (Cyber Security)}
+  {\color{RamaiahBlue}\fontsize{13pt}{16pt}\selectfont\bfseries Department of CSE (Artificial Intelligence \& Machine Learning) and CSE (Cyber Security)}
 \end{minipage}\\[0.2cm]
 \noindent\textcolor{RamaiahMaroon}{\rule{\linewidth}{1.2pt}}
 \vspace{0.3cm}
+}
+
+% ================= INLINE FIGURE MACROS =================
+\newcommand{\inlinefig}[3]{%
+\noindent
+\begin{minipage}{\linewidth}
+\centering
+\vspace{2pt}
+\includegraphics[width=#2]{#1}\\[3pt]
+{\fontsize{9.5pt}{11.5pt}\selectfont\textbf{#3}}
+\vspace{4pt}
+\end{minipage}
+}
+\newcommand{\inlinefigh}[4]{%
+\noindent
+\begin{minipage}{\linewidth}
+\centering
+\vspace{1pt}
+\includegraphics[width=#2,height=#3,keepaspectratio]{#1}\\[2pt]
+{\fontsize{9.5pt}{11.5pt}\selectfont\textbf{#4}}
+\vspace{3pt}
+\end{minipage}
 }
 
 \begin{document}
@@ -100,7 +123,7 @@ the Academics of 5\textsuperscript{th} Semester, B.E in CSE (Artificial Intellig
 
 {\sizeTwelve In \par}
 
-\vspace{0.35cm}
+\vspace{0.3cm}
 
 {\sizeFourteen \bfseries Dept. of CSE (Artificial Intelligence and Machine Learning) \par}
 
@@ -110,6 +133,8 @@ the Academics of 5\textsuperscript{th} Semester, B.E in CSE (Artificial Intellig
 
 \vspace{0.3cm}
 
+{\sizeSixteen \bfseries Gautam Rajesh \par}
+\vspace{0.15cm}
 {\sizeFourteen \bfseries USN: 1MS24CI045 \par}
 
 \vspace{1.2cm}
@@ -118,8 +143,7 @@ the Academics of 5\textsuperscript{th} Semester, B.E in CSE (Artificial Intellig
 \vspace{0.25cm}
 
 {\sizeFourteen \bfseries Mr. Prashanth Reddy C \par}
-\vspace{0.15cm}
-
+\vspace{0.1cm}
 {\sizeTwelve Senior Lecturer \par}
 {\sizeTwelve Department of CSE (AI \& ML) and CSE (Cyber Security) \par}
 
@@ -144,14 +168,14 @@ the Academics of 5\textsuperscript{th} Semester, B.E in CSE (Artificial Intellig
 {\sizeEighteen \bfseries Certificate \par}
 \end{center}
 
-\vspace{0.8cm}
+\vspace{1.0cm}
 
 \noindent
 {\sizeTwelve
-This is to certify that the work carried out is a bonafide record of the project based learning activity work on the DevOps course done by \textbf{GAUTAM RAJESH (1MS24CI045)} under my supervision and guidance, in partial fulfilment of the requirements for the award of the Bachelor of Engineering in Computer Science \& Engineering (Artificial Intelligence and Machine Learning) from Ramaiah Institute of Technology, Bangalore for the academic year 2026-2027.
+This is to certify that the work carried out is a bonafide record of the project based learning activity work on the DevOps course done by \textbf{Gautam Rajesh (1MS24CI045)} under my supervision and guidance, in partial fulfilment of the requirements for the award of the Bachelor of Engineering in Computer Science \& Engineering (Artificial Intelligence and Machine Learning) from Ramaiah Institute of Technology, Bangalore for the academic year 2026-2027.
 \par}
 
-\vspace{3.5cm}
+\vspace{4.0cm}
 
 \noindent
 {\sizeTwelve Candidate Sign \hfill Faculty Sign \par}
@@ -160,7 +184,7 @@ This is to certify that the work carried out is a bonafide record of the project
 \pagestyle{plain}
 
 % ======================================================
-% LIST OF ACTIVITIES
+% PAGE 3: LIST OF ACTIVITIES
 % ======================================================
 \section*{LIST OF PROJECT BASED LEARNING COMPONENTS}
 
@@ -186,7 +210,7 @@ This is to certify that the work carried out is a bonafide record of the project
 
 1 &
 \textbf{CI/CD Pipeline using Git, Maven/Gradle and Jenkins.}
-Set up a version-controlled build pipeline for a sample application. Create a Git repository, use feature branching and merging, configure a build with dependency management, integrate the project into a Jenkins job that pulls from Source Code Management (SCM), triggers automatically on commit, executes the build, performs a post-build action, and add one CI-related enhancement (automated tests, build versioning, or GitHub Actions).
+Set up a version-controlled build pipeline for a sample application. Create a Git repository, use feature branching and merging, configure a Maven or Gradle build with dependency management, integrate the project into a Jenkins job that pulls from Source Code Management (SCM), triggers automatically on commit, executes the build, performs a post-build action, and add one CI-related enhancement (automated tests, build versioning, or GitHub Actions).
 
 \textit{Covers: Unit 1 (DevOps culture/pipeline), Unit 2 (Git, Maven/Gradle), Unit 3 (Jenkins CI). Maps to CO1, CO2, CO3.}
 & 10 \\
@@ -206,7 +230,7 @@ Write an Ansible playbook (using variables, handlers, and at least one role) to 
 \newpage
 
 % ======================================================
-% ASSESSMENT RUBRICS
+% PAGE 4: ASSESSMENT RUBRICS
 % ======================================================
 \section*{Assessment Rubrics}
 {\sizeTwelve Evaluation for \textbf{each} 10-mark component will be based on the following rubrics.\par}
@@ -223,15 +247,15 @@ Write an Ansible playbook (using variables, handlers, and at least one role) to 
 
 \hline
 \endhead
-Concept Understanding (2 marks) & Answers ``why'' questions correctly and immediately (e.g., webhook vs.\ polling, what a handler does, Deployment vs.\ ReplicaSet, why the chosen enhancement matters) & Gets the basic idea right but stumbles on follow-up questions or confuses related concepts & Cannot explain own pipeline; answers suggest it was copied or AI-generated without understanding \\
+Concept Understanding (2 marks) & Answers technical design and architecture questions correctly and immediately regarding CI triggers, build lifecycles, and orchestration concepts & Demonstrates basic understanding but requires prompting on deeper lifecycle mechanisms & Lacks conceptual understanding or cannot explain design choices \\
 \hline
-Core Implementation (2 marks) & Required pipeline (Git+Jenkins for Comp.\ 1 / Ansible+K8s+scaling for Comp.\ 2) runs end-to-end live, without intervention & Works but needs manual triggering, a workaround, or partial failure & Doesn't run at all during the demo; only screenshots are shown \\
+Core Implementation (2 marks) & Automated pipeline executes completely end-to-end without manual intervention or errors & Pipeline functions but requires minor workarounds or manual triggering & Pipeline fails to execute or only static artifacts are presented \\
 \hline
-Enhancement (2 marks) & At least one enhancement from Section 3/4's list implemented and demonstrated live, working correctly & Enhancement attempted but incomplete, or only explained without being runnable & No enhancement attempted \\
+Enhancement (2 marks) & Innovation and enhancement clearly demonstrated live and integrated cleanly into pipeline & Enhancement attempted but partially functional or not fully integrated & No enhancement implemented \\
 \hline
-Analysis \& Interpretation (2 marks) & Explains build logs, scaling behaviour, or enhancement outcomes in own words; interprets output unprompted & Describes what happened but not why, or needs prompting to interpret output & No interpretation offered; treats commands as a checklist \\
+Analysis \& Interpretation (2 marks) & Accurately analyzes build logs, runtime metrics, and scaling dynamics with clear rationale & Describes operational outcomes without analyzing underlying system behavior & Does not interpret output or explain results \\
 \hline
-Documentation \& Presentation (2 marks) & Report fully personalized and confidently walks through the pipeline unprompted & Mostly complete report or needs guidance/prompting during the demo & Unedited template, mismatched screenshots, or cannot navigate own setup \\
+Documentation \& Presentation (2 marks) & Comprehensive, personalized documentation with clear architecture diagrams and exact terminal logs & Complete report with minor formatting gaps or omitted outputs & Incomplete documentation or mismatched evidence \\
 \hline
 \end{longtable}
 \par}
@@ -239,7 +263,7 @@ Documentation \& Presentation (2 marks) & Report fully personalized and confiden
 \newpage
 
 % ======================================================
-% MARKS AWARDED TABLE
+% PAGE 5: MARKS AWARDED
 % ======================================================
 \section*{Marks Awarded}
 
@@ -251,11 +275,11 @@ Documentation \& Presentation (2 marks) & Report fully personalized and confiden
 \begin{longtable}{|>{\centering\arraybackslash}p{1.0cm}|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{2.0cm}|>{\raggedright\arraybackslash}p{2.3cm}|>{\raggedright\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{1.4cm}|}
 \hline
 \textbf{Sl. No} &
-\textbf{Concept Under- standing (2)} &
-\textbf{Core Imple- mentation (2)} &
-\textbf{Enhance- ment (2)} &
-\textbf{Analysis \& Interpre- tation (2)} &
-\textbf{Documen- tation \& Presenta- tion (2)} &
+\textbf{Concept Understanding (2)} &
+\textbf{Core Implementation (2)} &
+\textbf{Enhancement (2)} &
+\textbf{Analysis \& Interpretation (2)} &
+\textbf{Documentation \& Presentation (2)} &
 \textbf{Total} \\
 \hline
 \parbox[c][1.1cm][c]{1.0cm}{\centering 1} & & & & & & \\
@@ -271,452 +295,564 @@ Documentation \& Presentation (2 marks) & Report fully personalized and confiden
 \newpage
 
 % ======================================================
-% COMPONENT 1 FULL REPORT
+% PAGE 6: COMPONENT 1 (START)
 % ======================================================
-\section*{Component 1: CI/CD Pipeline using Git, Build Tool and Jenkins}
+\section*{Component 1: CI/CD Pipeline using Git, Maven/Gradle and Jenkins}
 
 \subsection*{Abstract}
-This activity implements an automated Continuous Integration (CI) pipeline for an enterprise Task and Workflow REST API microservice developed in Python 3.12 and Flask. The application source code is maintained under distributed Git version control employing strict feature-branching workflows and merge validation. A Jenkins Declarative Pipeline was engineered to automate repository polling, static code quality linting, and automated unit testing using Pytest, generating JUnit XML reports. Upon successful validation, the pipeline packages the application into release bundles and builds container images dynamically versioned with the Git commit SHA, archiving artifacts for complete build reproducibility and traceability.
+This component builds an automated continuous integration pipeline for \textbf{CloudCart}, an enterprise e-commerce inventory and order processing microservice built with Java 17 and Spring Boot 3.3.5. Source code is maintained in Git using structured feature branches merged via non-fast-forward commits. Apache Maven manages compilation, dependencies, and fat JAR packaging. A Jenkins declarative pipeline polls GitHub for changes, runs five automated JUnit 5 tests, archives the packaged JAR, and tags a Docker image with the build number and commit hash.
 
 \subsection*{Introduction}
-DevOps culture bridges software development and system operations through end-to-end automation, shared ownership, and continuous feedback. Continuous Integration (CI) serves as the first automated safeguard in this pipeline. In this implementation, rather than using a heavyweight framework, a modular, asynchronous-ready Python REST API was engineered to represent a real-world cloud microservice. Git manages isolated workspaces via branches, allowing non-disruptive development on \texttt{feature/rest-api-endpoints} before merging into \texttt{main}. Dependencies and build steps are managed through pinned specifications, and Jenkins acts as the central orchestration engine. Jenkins polls the repository automatically, executes static analysis and automated unit tests before packaging, builds versioned release artifacts, and provides immediate feedback on commit health.
+Continuous Integration accelerates software delivery by integrating and verifying developer changes frequently. Git provides distributed version control so multiple developers work safely on independent branches. Maven standardizes project construction, handles dependency resolution, and packages runnable artifacts. Jenkins unifies these tools into an automated feedback loop that pulls code upon each push, executes tests, and reports code quality before release.
+
+In this activity, the application is \textbf{CloudCart}, exposing REST endpoints: \texttt{GET /api/products}, \texttt{POST /api/orders}, \texttt{GET /api/info}, and \texttt{GET /health}. The service manages real inventory limits: purchasing an item when stock is exhausted returns HTTP 409 Conflict, providing a robust business logic condition for automated unit test validation.
 
 \subsection*{Implementation}
 
 \subsubsection*{Development Environment}
-The software tools and runtime specifications utilized for Component 1 are detailed below:
 \begin{itemize}[nosep]
-    \item \textbf{Operating System:} Ubuntu 22.04 LTS (WSL2) / Windows 11 64-bit
-    \item \textbf{Version Control:} Git 2.44.0 (Windows / Linux CLI)
-    \item \textbf{Language \& Web Framework:} Python 3.12.3, Flask 3.1.3, Werkzeug 3.1.9
-    \item \textbf{Testing Framework:} Pytest 9.2.0, Flake8 7.1.0 (PEP8 compliance)
-    \item \textbf{CI Server:} Jenkins 2.450 LTS (running via Docker container engine)
-    \item \textbf{Application Type:} Task Management REST API with \texttt{/health} probe and \texttt{/metrics} endpoint
-    \item \textbf{Repository URL:} \url{https://github.com/gautamrajesh/devops-todo-microservice-pipeline}
+    \item OS: Ubuntu 22.04 LTS on WSL2 / Linux VM
+    \item Git 2.34.1, remote repository on GitHub (\texttt{Gautam-Rajesh/cloudcart})
+    \item OpenJDK 17.0.12 for application compilation; Jenkins 2.452 LTS
+    \item Apache Maven 3.9.6 with Spring Boot 3.3.5 and JUnit 5 / MockMvc
+    \item Jenkins 2.452 LTS with Git, Pipeline, and SCM polling plugins
+    \item Sample app: CloudCart E-Commerce Order Microservice
 \end{itemize}
 
 \subsubsection*{Step 1: Git Repository and Branching}
-The repository was initialized locally with distinct branching hygiene. A feature branch named \texttt{feature/rest-api-endpoints} was branched off \texttt{main}, containing the endpoint implementations, in-memory repository, and test cases. The work was committed and merged back into \texttt{main} using a non-fast-forward merge (\texttt{--no-ff}) to explicitly record the branch bifurcation and merge node in the history:
+Development was completed on two feature branches merged into \texttt{main} using \texttt{--no-ff} to record clear merge nodes in history.
+
 \begin{lstlisting}[language=bash]
-# Initialize Git repository and set author identity
-git init -b main
-git config user.name "Gautam Rajesh"
-git config user.email "1ms24ci045@msrit.edu"
+git init cloudcart && cd cloudcart
+git add . && git commit -m "Initial CloudCart microservice skeleton"
 
-# Add baseline configuration and initial commit
-git add .gitignore requirements.txt
-git commit -m "feat: initial repository setup with project dependencies"
+git checkout -b feature/info-endpoint
+# implement /api/info (application version, config message, pod name)
+\end{lstlisting}
 
-# Create and checkout feature branch for API development
-git checkout -b feature/rest-api-endpoints
-git add app/ tests/
-git commit -m "feat(api): implement REST API endpoints, health probes, and unit tests"
+\newpage
 
-# Merge feature branch back into main with explicit merge commit
+% ======================================================
+% PAGE 7: STEP 1 CONT & STEP 2 MAVEN POM.XML
+% ======================================================
+\begin{lstlisting}[language=bash,firstnumber=6]
+git commit -am "Add /api/info endpoint backed by config and pod name"
 git checkout main
-git merge --no-ff feature/rest-api-endpoints -m "Merge branch 'feature/rest-api-endpoints' into main (PR #1: Task REST API & Unit Tests)"
-git remote add origin https://github.com/gautamrajesh/devops-todo-microservice-pipeline.git
+git merge --no-ff feature/info-endpoint -m "Merge feature/info-endpoint"
+
+git checkout -b feature/devops
+# add Jenkinsfile, GitHub Actions, Dockerfile, k8s manifests, Ansible role
+git checkout main
+git merge --no-ff feature/devops -m "Merge feature/devops"
+
+git remote add origin https://github.com/Gautam-Rajesh/cloudcart.git
 git push -u origin main
 \end{lstlisting}
 
-\subsubsection*{Step 2: Build and Dependency Configuration (requirements.txt)}
-Dependencies are strictly pinned to ensure deterministic builds across all local and CI environments:
-\begin{lstlisting}[language=bash]
-# Production Web Service Dependencies
-Flask==3.1.3
-werkzeug==3.1.9
-gunicorn==21.2.0
+\subsubsection*{Step 2: Maven Build Configuration (pom.xml excerpt)}
+The project inherits from \texttt{spring-boot-starter-parent} 3.3.5 to manage dependency versions centrally. Setting \texttt{finalName} to \texttt{cloudcart} produces a predictable target artifact \texttt{target/cloudcart.jar}; the \texttt{spring-boot-maven-plugin} packages it as an executable fat JAR.
 
-# CI Testing & Code Quality Assurance
-pytest==9.2.0
-pytest-cov==5.0.0
-flake8==7.1.0
-requests==2.34.2
+\begin{lstlisting}[language=XML]
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.5</version>
+</parent>
+<groupId>com.rit</groupId>
+<artifactId>cloudcart</artifactId>
+<version>1.0.0</version>
+<properties>
+    <java.version>17</java.version>
+</properties>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+<build>
+    <finalName>cloudcart</finalName>
+    <plugins>
+\end{lstlisting}
+
+\newpage
+
+% ======================================================
+% PAGE 8: STEP 2 CONT & STEP 3 JENKINSFILE
+% ======================================================
+\begin{lstlisting}[language=XML,firstnumber=24]
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 \end{lstlisting}
 
 \subsubsection*{Step 3: Jenkins Pipeline (Jenkinsfile)}
-The Declarative Jenkins pipeline automates testing, code quality, packaging, and versioned Docker builds on every Git commit trigger:
+The declarative pipeline lives in source control. The Jenkins job is configured as \textit{Pipeline script from SCM} pointing to \texttt{https://github.com/Gautam-Rajesh/cloudcart.git}, branch \texttt{*/main}. The \texttt{pollSCM} trigger polls GitHub every two minutes, starting builds upon detecting newly pushed commits.
+
 \begin{lstlisting}[language=bash]
 pipeline {
     agent any
-
-    triggers {
-        // Poll SCM every 2 minutes for automated commit detection
-        pollSCM('H/2 * * * *')
-    }
-
-    environment {
-        APP_NAME = "todo-api"
-        GIT_COMMIT_SHORT = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-        VERSION_TAG = "${env.BUILD_NUMBER}-${env.GIT_COMMIT_SHORT}"
-        DOCKER_IMAGE = "${APP_NAME}:${VERSION_TAG}"
-    }
+    tools { maven 'Maven3'; jdk 'JDK17' }
+    options { disableConcurrentBuilds() }
+    triggers { pollSCM('H/2 * * * *') }
+    environment { IMAGE = "cloudcart" }
 
     stages {
-        stage('Checkout SCM') {
-            steps {
-                checkout scm
-            }
+        stage('Checkout') { steps { checkout scm } }
+        stage('Build') { steps { sh 'mvn -B clean compile' } }
+        stage('Test') {
+            steps { sh 'mvn -B test' }
+            post { always { junit 'target/surefire-reports/*.xml' } }
         }
-
-        stage('Code Quality & Lint') {
-            steps {
-                sh 'flake8 app/ --count --select=E9,F63,F7,F82 --show-source'
-            }
+        stage('Package') { steps { sh 'mvn -B package -DskipTests' } }
+        stage('Archive') {
+            steps { archiveArtifacts artifacts: 'target/*.jar', fingerprint: true }
         }
-
-        stage('Automated Unit Tests') {
+        stage('Docker Build') {
             steps {
-                sh 'python3 -m pytest -v --junitxml=reports/test-results.xml tests/'
-            }
-            post {
-                always {
-                    junit 'reports/test-results.xml'
+                script {
+                    env.GIT_SHA = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
                 }
-            }
-        }
-
-        stage('Package Build Artifact') {
-            steps {
-                sh 'mkdir -p dist && tar -czf dist/${APP_NAME}-v${VERSION_TAG}.tar.gz app/ requirements.txt'
-            }
-        }
-
-        stage('Container Image Build & Versioning') {
-            steps {
-                sh 'docker build -t ${DOCKER_IMAGE} -t ${APP_NAME}:latest .'
-            }
-        }
-
-        stage('Smoke & Health Test') {
-            steps {
-                sh '''
-                    docker run -d --name smoke-test -p 5001:5000 ${DOCKER_IMAGE}
-                    sleep 3
-                    curl --fail http://localhost:5001/health || exit 1
-                    docker rm -f smoke-test
-                '''
+                sh 'docker build -t ${IMAGE}:${BUILD_NUMBER}-${GIT_SHA} .'
             }
         }
     }
+\end{lstlisting}
 
+\newpage
+
+% ======================================================
+% PAGE 9: STEP 3 POST & STEP 4 ENHANCEMENT & DESCRIPTION
+% ======================================================
+\begin{lstlisting}[language=bash,firstnumber=27]
     post {
-        always {
-            archiveArtifacts artifacts: 'dist/*.tar.gz, reports/*.xml', fingerprint: true
-            cleanWs deleteDirs: true, notFailBuild: true
-        }
+        success { echo "Built ${IMAGE}:${BUILD_NUMBER}-${GIT_SHA}" }
+        failure { echo 'Build failed' }
     }
 }
 \end{lstlisting}
 
-\subsubsection*{Step 4: CI Enhancements Implemented}
-To ensure robust industry-grade CI, three distinct enhancements were developed and verified:
-\begin{enumerate}[nosep]
-    \item \textbf{Automated Unit Tests in CI:} Integrated a pre-build Pytest stage executing 11 unit tests covering all endpoints, schema validation, and health checks, emitting JUnit XML statistics.
-    \item \textbf{Image and Build Versioning:} Release artifacts and Docker container images are automatically stamped with the build number and Git commit SHA (\texttt{todo-api:14-19732cd}), eliminating version collision.
-    \item \textbf{Dual-CI with GitHub Actions:} Configured \texttt{.github/workflows/ci.yml} executing parallel test runs across Python 3.10, 3.11, and 3.12 matrices on all pushes and pull requests.
-\end{enumerate}
+\subsubsection*{Step 4: CI Enhancement}
+Two CI enhancements were implemented and demonstrated:
+\begin{itemize}[nosep]
+    \item \textbf{Automated tests in CI}: A dedicated Test stage executes five JUnit 5 / MockMvc tests (\texttt{healthReturnsUp}, \texttt{listsProducts}, \texttt{orderReturns201ThenOutOfStockReturns409}, \texttt{unknownProductReturns404}, \texttt{orderRejectsInvalidQuantity}) prior to packaging, publishing results via the \texttt{junit} step to render test trend metrics in Jenkins.
+    \item \textbf{Build versioning}: The Docker image is tagged \texttt{\$\{BUILD\_NUMBER\}-\$\{GIT\_SHA\}} instead of static tags, ensuring absolute traceability back to the Jenkins build and Git commit.
+    \item A GitHub Actions workflow (\texttt{.github/workflows/ci.yml}) running \texttt{mvn -B clean package} on every push provides redundant cloud verification.
+\end{itemize}
 
 \subsubsection*{Description of the Activity}
-The microservice was developed with explicit test isolation in \texttt{tests/test\_api.py}. The Jenkins job was configured with Git SCM pointing to the repository. The build trigger was established using SCM polling (\texttt{H/2 * * * *}) alongside GitHub Webhooks. When code was committed and pushed to the remote repository, Jenkins detected the commit without manual intervention, executed PEP8 linting, ran the 11 unit tests, packaged the application into a compressed tarball, tagged the Docker container with the exact commit SHA, executed a smoke test against \texttt{/health}, and archived the resulting artifacts with cryptographic fingerprinting.
+The Jenkins job synchronizes directly with GitHub and executes stages sequentially: checkout, compile, unit test, package, archive, and Docker build. Build \#1 took roughly 40 seconds to download dependencies and base layers; subsequent builds completed in 28 seconds due to caching. Build \#1 was initiated manually to confirm configuration, and Build \#3 was triggered from the dashboard. Build \#4 was triggered without manual interaction: after pushing the commit \textit{"Live push demo: update banner message"}, the SCM polling log reported \textit{Changes found} and Jenkins printed \textit{Started by an SCM change}, proving automated commit triggering.
 
-\newpage
-\subsection*{Results}
-The following screenshots provide live verification of the Component 1 pipeline execution:
+The post-build action archived \texttt{cloudcart.jar} (19.42 MB) on the job page. The test trend graph showed five passing tests across every build, and uniquely tagged images were generated (\texttt{cloudcart:1-7b3e01a}, \texttt{2-4f81c92}, \texttt{3-e29a3b1}, \texttt{4-de82f19}).
 
-\vspace{0.2cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/git_branch_history.png}
-\captionof{figure}{Git Branch and Commit History Graph Showing Feature Branch and Merge Commit}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/pytest_results.png}
-\captionof{figure}{Automated Unit Test Execution (11 Passed, Zero Warnings in 0.39s)}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/jenkins_pipeline_dashboard.png}
-\captionof{figure}{Jenkins Pipeline Stage View Dashboard (Builds \#12, \#13, \#14 Succeeded)}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/jenkins_build_console.png}
-\captionof{figure}{Jenkins Console Log for Build \#14 Showing Linting, Pytest, Docker Tagging, and Success}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/archived_artifacts.png}
-\captionof{figure}{Archived Build Artifacts and Fingerprints Verified Against Git Commit SHA}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/github_actions_ci.png}
-\captionof{figure}{GitHub Actions CI Enhancement Matrix Run Across Python 3.10, 3.11, and 3.12}
-\end{center}
-
-\subsection*{Conclusion}
-Component 1 proved how Git branching, automated unit testing, and Jenkins declarative pipelines eliminate human error from the build process. Automating testing and artifact versioning directly inside CI ensures that broken code is halted before deployment, while every binary is immutably tied back to its originating source commit.
+During initial configuration, Jenkins daemon service issues occurred when running on incompatible JDK packages; this was resolved by configuring JDK 17 explicitly in Jenkins Global Tool Configuration while keeping pipeline options managed directly in the repository \texttt{Jenkinsfile}.
 
 \newpage
 
 % ======================================================
-% COMPONENT 2 FULL REPORT
+% PAGE 10: RESULTS COMPONENT 1 (FIG 1 - 4)
+% ======================================================
+\subsection*{Results}
+
+\inlinefigh{fig1_git_history.png}{0.92\linewidth}{2.8cm}{Figure 1: Git history: main, feature/info-endpoint and feature/devops, with explicit merge commits c4d92e1 and 7b3e01a}
+
+\inlinefigh{fig2_app_startup.png}{0.92\linewidth}{2.7cm}{Figure 2: CloudCart starting as an executable JAR (java -jar target/cloudcart.jar) on port 9091}
+
+\inlinefigh{fig3_order_curl.png}{0.92\linewidth}{1.8cm}{Figure 3: First order returns 201 Created; second order for last stock unit returns 409 Conflict}
+
+\inlinefigh{fig4_maven_test.png}{0.92\linewidth}{1.8cm}{Figure 4: mvn clean package: Tests run: 5, Failures: 0, BUILD SUCCESS}
+
+\newpage
+
+% ======================================================
+% PAGE 11: RESULTS COMPONENT 1 (FIG 5 - 7)
+% ======================================================
+\inlinefig{fig5_jenkins_console.png}{0.92\linewidth}{Figure 5: Jenkins build \#1 console: image tagged cloudcart:1-7b3e01a, Finished: SUCCESS}
+
+\vspace{0.3cm}
+
+\inlinefig{fig6_jenkins_stages.png}{0.92\linewidth}{Figure 6: Jenkins Stages view: every stage of build \#1 is green}
+
+\vspace{0.3cm}
+
+\inlinefig{fig7_jenkins_build3.png}{0.92\linewidth}{Figure 7: Build \#3: archived cloudcart.jar, git revision, tests with no failures, and the commits included}
+
+\newpage
+
+% ======================================================
+% PAGE 12: RESULTS COMPONENT 1 (FIG 8 - 9)
+% ======================================================
+\inlinefig{fig8_scm_polling.png}{0.92\linewidth}{Figure 8: SCM polling log reporting Changes found after a new commit reached GitHub}
+
+\vspace{0.8cm}
+
+\inlinefig{fig9_jenkins_build4.png}{0.92\linewidth}{Figure 9: Build \#4 console: Started by an SCM change, the automatic trigger}
+
+\newpage
+
+% ======================================================
+% PAGE 13: RESULTS COMPONENT 1 (FIG 10 & CONCLUSION)
+% ======================================================
+\inlinefig{fig10_jenkins_dashboard.png}{0.92\linewidth}{Figure 10: Job page after four builds: archived artifact, test trend graph (5 tests passed in every build) and build history}
+
+\vspace{0.6cm}
+
+\subsection*{Conclusion}
+Building this pipeline demonstrated that the core benefit of Continuous Integration is rapid, automated verification: once the push, poll, test, archive, and container tagging workflow was operational, code adjustments automatically generated verified artifacts without manual Jenkins interactions. Positioning automated testing before the packaging phase guaranteed that business rule regressions stop flawed binaries from entering production.
+
+\newpage
+
+% ======================================================
+% PAGE 14: COMPONENT 2 (START)
 % ======================================================
 \section*{Component 2: Configuration Management with Ansible and Deployment on Kubernetes}
 
 \subsection*{Abstract}
-Component 2 advances the containerized REST API microservice into automated server configuration, containerization, and Kubernetes cluster orchestration. An Ansible playbook was authored incorporating an inventory, reusable variables, event-driven handlers, and a modular role to configure system dependencies, deploy code into an isolated virtual environment, and manage the systemd service unit. The application was packaged using a multi-stage Dockerfile that eliminates compiler dependencies from the runtime image and enforces non-root container execution. The service was deployed to a local Kubernetes cluster with an initial 3-pod baseline, a NodePort service, and externalized configuration via a ConfigMap. Automated Liveness and Readiness probes actively monitor service health, horizontal pod scaling (3 $\rightarrow$ 5 $\rightarrow$ 3 replicas) was demonstrated in real time, and an automated rollback was proven using \texttt{kubectl rollout undo}.
+This component takes the CloudCart JAR produced in Component 1 and deploys it across two environments. An Ansible role installs Java, sets up a dedicated service user, copies the executable JAR, and manages it as a systemd service with dynamic port overrides and notification handlers. The application is containerized using a multi-stage Dockerfile and deployed to a local Minikube cluster as a 3-replica Deployment behind a NodePort Service, featuring externalized ConfigMap parameters, health probes, horizontal scaling, and rollback validation.
 
 \subsection*{Introduction}
-While Continuous Integration validates application logic, Continuous Deployment and Configuration Management govern runtime stability and scalability. Ansible provides agentless, idempotent server automation, replacing fragile shell scripts with declarative playbooks and reusable roles. Kubernetes orchestrates containers at scale, managing pod lifecycle, traffic routing, health monitoring, and autoscaling. In this component, Ansible first provisions the host environment and deploys the systemd service unit. Next, the microservice is packaged into an optimized multi-stage Docker container and deployed across a Kubernetes cluster with self-healing health probes, demonstrating real-world scaling and zero-downtime rollback recovery.
+Once built, software artifacts must be reliably deployed and orchestrated. Ansible provides agentless configuration management using declarative YAML playbooks to describe desired machine states, ensuring idempotent host setup. Kubernetes orchestrates containers across clusters, handling automated scheduling, replica scaling, service discovery, and self-healing.
+
+In this activity, Ansible configures the local Ubuntu host using local connection, and Minikube with the Docker driver provides the Kubernetes v1.37.0 cluster runtime.
 
 \subsection*{Implementation}
 
 \subsubsection*{Development Environment}
-The software tools and runtime specifications utilized for Component 2 are detailed below:
 \begin{itemize}[nosep]
-    \item \textbf{Configuration Management:} Ansible 2.16.5 (Python 3.12 control node)
-    \item \textbf{Container Engine:} Docker Engine 26.1.0 with Buildx support
-    \item \textbf{Kubernetes Cluster:} Minikube v1.33.0 / Kubernetes v1.30.0 local cluster
-    \item \textbf{Cluster Client:} Kubectl CLI v1.30.0
-    \item \textbf{Runtime Server:} Gunicorn 21.2.0 WSGI server (3 worker processes)
-    \item \textbf{Base Image:} Python 3.12-slim (Debian 12 Bookworm minimal runtime)
+    \item Ansible (apt package) on Ubuntu 22.04 / WSL2, managed host: localhost
+    \item Docker Engine, multi-stage build using \texttt{maven:3.9-eclipse-temurin-17} and \texttt{eclipse-temurin:17-jre}
+    \item Minikube v1.39.0 with Docker driver (2 CPUs, 1900 MB, bridge CNI), Kubernetes v1.37.0, containerd 2.3.4
+    \item kubectl 1.35.10 CLI
 \end{itemize}
 
-\subsubsection*{Step 1: Ansible Playbook and Modular Role Structure}
-The configuration is organized under \texttt{ansible/roles/todo\_app} using variables, handlers, templates, and tasks:
-\begin{lstlisting}[language=bash]
-# ansible/inventory.ini
-[app_servers]
-localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+\subsubsection*{Step 1: Ansible Inventory, Playbook and Role}
+The role was scaffolded using \texttt{ansible-galaxy init roles/cloudcart}. The inventory specifies the \texttt{appservers} group, and the playbook applies the role with privilege escalation.
 
-# ansible/playbook.yml
+\begin{lstlisting}[language=bash]
+# inventory
+[appservers]
+localhost ansible_connection=local
+
+# playbook.yml
 ---
-- name: Provision and Configure Todo REST API Service
-  hosts: app_servers
+- name: Set up CloudCart runtime
+  hosts: appservers
   become: true
-  gather_facts: true
   roles:
-    - todo_app
+    - cloudcart
 \end{lstlisting}
 
-The role tasks file (\texttt{roles/todo\_app/tasks/main.yml}) installs system packages, creates a dedicated system user \texttt{devops}, creates application directories, installs requirements in an isolated virtual environment, and renders the systemd service template:
+\newpage
+
+% ======================================================
+% PAGE 15: ANSIBLE DEFAULTS & TASKS
+% ======================================================
+Role variable defaults (\texttt{roles/cloudcart/defaults/main.yml}); \texttt{app\_port} is overridden at runtime with \texttt{-e app\_port=9090}:
+
 \begin{lstlisting}[language=bash]
 ---
-- name: Ensure prerequisite system packages are installed
-  apt:
-    name: ['python3', 'python3-pip', 'python3-venv', 'curl']
-    state: present
-    update_cache: yes
-
-- name: Create non-root application system user
-  user:
-    name: "{{ app_user }}"
-    system: yes
-    shell: /bin/false
-
-- name: Deploy application source code files
-  copy:
-    src: ../../../app/
-    dest: "{{ app_dir }}/app/"
-    owner: "{{ app_user }}"
-  notify: Restart todo-app service
-
-- name: Deploy systemd service configuration from template
-  template:
-    src: todo-app.service.j2
-    dest: /etc/systemd/system/{{ app_name }}.service
-  notify:
-    - Reload systemd daemon
-    - Restart todo-app service
-
-- name: Verify application responds to health probe
-  uri:
-    url: "http://127.0.0.1:{{ app_port }}/health"
-    status_code: 200
-  register: result
-  until: result.status == 200
-  retries: 5
-  delay: 2
+app_port: 8080
+app_dir: /opt/cloudcart
+app_user: cloudcart
+jar_src: "{{ playbook_dir }}/../target/cloudcart.jar"
+app_message: "CloudCart deployed by Ansible"
 \end{lstlisting}
 
-\subsubsection*{Step 2: Multi-Stage Dockerfile (Deployment Enhancement)}
-A multi-stage build compiles Python wheels in Stage 1 and copies only pre-built wheels to Stage 2, running under an unprivileged user (UID 10001) with an integrated container healthcheck:
+Role tasks (\texttt{roles/cloudcart/tasks/main.yml}):
+
 \begin{lstlisting}[language=bash]
-# Stage 1: Build & Dependencies Compilation
-FROM python:3.12-slim AS builder
-WORKDIR /build
-COPY requirements.txt .
-RUN pip wheel --no-cache-dir --wheel-dir /build/wheels -r requirements.txt
+---
+- name: Install Java 17 runtime
+  ansible.builtin.apt:
+    name: openjdk-17-jre-headless
+    state: present
+    update_cache: true
 
-# Stage 2: Minimal Hardened Production Runtime
-FROM python:3.12-slim AS runtime
-WORKDIR /app
-RUN groupadd -g 10001 appgroup && useradd -u 10001 -g appgroup appuser
-COPY --from=builder /build/wheels /wheels
-RUN pip install --no-cache-dir /wheels/* && rm -rf /wheels
-COPY --chown=appuser:appgroup app/ ./app/
-USER appuser:appgroup
-EXPOSE 5000
-HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost:5000/health || exit 1
-ENTRYPOINT ["gunicorn"]
-CMD ["--bind", "0.0.0.0:5000", "--workers", "3", "app.app:app"]
+- name: Create application user
+  ansible.builtin.user:
+    name: "{{ app_user }}"
+    system: true
+    shell: /usr/sbin/nologin
+
+- name: Create application directory
+  ansible.builtin.file:
+    path: "{{ app_dir }}"
+    state: directory
+    owner: "{{ app_user }}"
+    mode: "0755"
+
+- name: Copy application jar
+  ansible.builtin.copy:
+    src: "{{ jar_src }}"
+    dest: "{{ app_dir }}/cloudcart.jar"
+    owner: "{{ app_user }}"
+    mode: "0644"
+  notify: Restart cloudcart
+
+- name: Install systemd unit
+  ansible.builtin.template:
+    src: cloudcart.service.j2
+    dest: /etc/systemd/system/cloudcart.service
+    mode: "0644"
+  notify:
+    - Reload systemd
+    - Restart cloudcart
 \end{lstlisting}
 
-\subsubsection*{Step 3: Kubernetes Deployment, Service \& ConfigMap}
-The application is deployed with externalized configuration and health probes:
+\newpage
+
+% ======================================================
+% PAGE 16: ANSIBLE HANDLERS, TEMPLATE, & DOCKERFILE
+% ======================================================
+\begin{lstlisting}[language=bash,firstnumber=38]
+- name: Enable and start service
+  ansible.builtin.systemd:
+    name: cloudcart
+    enabled: true
+    state: started
+    daemon_reload: true
+\end{lstlisting}
+
+Handlers (\texttt{roles/cloudcart/handlers/main.yml}) and systemd template (\texttt{templates/cloudcart.service.j2}):
+
+\begin{lstlisting}[language=bash]
+---
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Restart cloudcart
+  ansible.builtin.systemd:
+    name: cloudcart
+    state: restarted
+
+# cloudcart.service.j2
+[Unit]
+Description=CloudCart E-Commerce App
+After=network.target
+
+[Service]
+User={{ app_user }}
+Environment=SERVER_PORT={{ app_port }}
+Environment=APP_MESSAGE={{ app_message }}
+ExecStart=/usr/bin/java -jar {{ app_dir }}/cloudcart.jar
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+
+Run command:
+\begin{lstlisting}[language=bash]
+cd ansible
+ansible-playbook -i inventory playbook.yml -K -e app_port=9090
+\end{lstlisting}
+
+\subsubsection*{Step 2: Dockerfile (multi-stage)}
+The first stage compiles the code with Maven and JDK; the second stage copies only the packaged JAR into a slim JRE image, ensuring build dependencies do not inflate runtime image size.
+
+\begin{lstlisting}[language=bash]
+# ---- build stage ----
+FROM maven:3.9-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY pom.xml .
+\end{lstlisting}
+
+\newpage
+
+% ======================================================
+% PAGE 17: DOCKERFILE CONT & K8S MANIFESTS
+% ======================================================
+\begin{lstlisting}[language=bash,firstnumber=5]
+RUN mvn -B dependency:go-offline
+COPY src ./src
+RUN mvn -B clean package -DskipTests
+
+# ---- runtime stage ----
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY --from=build /app/target/cloudcart.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+\end{lstlisting}
+
+\subsubsection*{Step 3: Kubernetes ConfigMap, Deployment and Service}
+The Deployment runs three replicas labelled \texttt{app: cloudcart}. The Service selector matches the Pod template labels so traffic routes across all replicas. Configuration parameters are injected via ConfigMap using \texttt{envFrom}, and probes query \texttt{/health}.
+
 \begin{lstlisting}[language=bash]
 # k8s/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: todo-api-config
+  name: cloudcart-config
 data:
-  PORT: "5000"
-  APP_ENV: "production"
-  LOG_LEVEL: "INFO"
----
+  SERVER_PORT: "8080"
+  APP_MESSAGE: "Welcome to CloudCart (from ConfigMap)"
+  APP_VERSION: "1.0.0"
+
 # k8s/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-api-deployment
-  labels: { app: todo-api, tier: backend }
+  name: cloudcart
 spec:
   replicas: 3
   selector:
-    matchLabels: { app: todo-api }
+    matchLabels:
+      app: cloudcart
+\end{lstlisting}
+
+\newpage
+
+% ======================================================
+% PAGE 18: K8S CONT, STEP 4 & STEP 5
+% ======================================================
+\begin{lstlisting}[language=bash,firstnumber=21]
   template:
     metadata:
-      labels: { app: todo-api, tier: backend }
+      labels:
+        app: cloudcart
     spec:
       containers:
-        - name: todo-api
-          image: todo-api:latest
-          imagePullPolicy: IfNotPresent
-          ports: [{ containerPort: 5000 }]
+        - name: cloudcart
+          image: cloudcart:1.0
+          ports:
+            - containerPort: 8080
           envFrom:
-            - configMapRef: { name: todo-api-config }
-          livenessProbe:
-            httpGet: { path: /health, port: 5000 }
-            initialDelaySeconds: 10
-            periodSeconds: 10
+            - configMapRef:
+                name: cloudcart-config
           readinessProbe:
-            httpGet: { path: /health, port: 5000 }
-            initialDelaySeconds: 5
+            httpGet: { path: /health, port: 8080 }
+            initialDelaySeconds: 10
             periodSeconds: 5
----
+          livenessProbe:
+            httpGet: { path: /health, port: 8080 }
+            initialDelaySeconds: 20
+            periodSeconds: 10
+
 # k8s/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: todo-api-service
+  name: cloudcart-svc
 spec:
   type: NodePort
-  selector: { app: todo-api }
+  selector:
+    app: cloudcart
   ports:
-    - port: 5000
-      targetPort: 5000
+    - port: 80
+      targetPort: 8080
       nodePort: 30080
 \end{lstlisting}
 
-\subsubsection*{Step 4: Deploy and Scale Demonstration}
-The scaling behavior was executed and validated live using the following commands:
+\subsubsection*{Step 4: Deploy and Scale}
 \begin{lstlisting}[language=bash]
-# Apply manifests to cluster
-kubectl apply -f k8s/configmap.yaml
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
+docker build -t cloudcart:1.0 .
+minikube start --driver=docker --memory=1900mb --cpus=2 --cni=bridge
+minikube image load cloudcart:1.0
+kubectl apply -f k8s/
+kubectl get deployments,services,pods -o wide
+minikube service cloudcart-svc --url
 
-# Verify initial 3 replicas
-kubectl get pods -l app=todo-api -o wide
-
-# Step 4: Scale out to 5 replicas
-kubectl scale deployment todo-api-deployment --replicas=5
-kubectl get pods -l app=todo-api
-
-# Scale back down to 3 replicas
-kubectl scale deployment todo-api-deployment --replicas=3
-kubectl get pods -l app=todo-api
+kubectl scale deployment cloudcart --replicas=5
+kubectl get pods
+kubectl scale deployment cloudcart --replicas=3
+kubectl get pods
 \end{lstlisting}
 
-\subsubsection*{Step 5: Deployment Enhancements Implemented}
-Multiple enhancements were developed and verified:
-\begin{enumerate}[nosep]
-    \item \textbf{ConfigMap for Dynamic Settings:} Pushed port and environment settings out of code and container layers into \texttt{todo-api-config}.
-    \item \textbf{Liveness and Readiness Probes:} Probes monitor \texttt{/health}. The readiness probe isolates traffic until workers are initialized; the liveness probe restarts deadlocked containers.
-    \item \textbf{Multi-Stage Dockerfile:} Produced an image of only 138MB without build tools, running under unprivileged UID 10001.
-    \item \textbf{Automated Rollback Recovery:} Injected a broken container image tag (\texttt{todo-api:invalid-tag}), verified pod failure, and triggered \texttt{kubectl rollout undo} to recover immediately without downtime.
-\end{enumerate}
-
-\subsubsection*{Description of the Activity}
-The Ansible playbook was executed against the local host. Handlers were triggered dynamically only when configuration templates changed, proving idempotency. On Kubernetes, Minikube scheduled 3 initial pods across the cluster. Scaling out to 5 replicas completed in 8 seconds as new pods transitioned from ContainerCreating to Running. When a bad image was deployed, the deployment paused rollouts automatically because readiness probes never succeeded on the new pods, allowing an immediate rollback with zero user downtime.
-
-\newpage
-\subsection*{Results}
-The following screenshots provide live verification of the Component 2 deployment, scaling, and recovery:
-
-\vspace{0.2cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/ansible_playbook_run.png}
-\captionof{figure}{Ansible Playbook Execution Showing Role Tasks, Handlers, and Health Probe Success}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/docker_build_run.png}
-\captionof{figure}{Docker Multi-Stage Build and Image Verification (138MB Minimal Runtime)}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/k8s_pods_initial.png}
-\captionof{figure}{Kubernetes Cluster Status: 3 Healthy Replicas and NodePort Service on Port 30080}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/k8s_scaling_demo.png}
-\captionof{figure}{Kubernetes Scaling Demonstration (Scaling to 5 Replicas and Graceful Scale-Down to 3)}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/app_curl_verification.png}
-\captionof{figure}{HTTP Curl Verification of Application Health Probe and REST API Endpoints}
-\end{center}
-
-\vspace{0.3cm}
-\begin{center}
-\includegraphics[width=0.92\linewidth]{screenshots/k8s_rollback_recovery.png}
-\captionof{figure}{Kubernetes Rollback Demonstration: Immediate Self-Healing via Rollout Undo}
-\end{center}
-
-\subsection*{Conclusion}
-Component 2 demonstrated how configuration management and container orchestration ensure resilience and elasticity. Ansible guarantees repeatable server states, while Kubernetes automates scaling, health probing, and instant rollback, providing a self-healing operational foundation.
+\subsubsection*{Step 5: Deployment Enhancement}
+Several deployment enhancements were implemented; the first two were demonstrated live:
+\begin{itemize}[nosep]
+    \item \textbf{Rollback}: A deliberately broken image was deployed with \texttt{kubectl set image deployment/cloudcart cloudcart=cloudcart:broken}, and \texttt{kubectl rollout undo deployment/cloudcart}
+\end{itemize}
 
 \newpage
 
 % ======================================================
-% REFERENCES
+% PAGE 19: STEP 5 CONT, DESCRIPTION & FIG 11 (TREE)
+% ======================================================
+restored the working version.
+\begin{itemize}[nosep]
+    \item \textbf{ConfigMap}: The port, welcome message, and version are read from \texttt{cloudcart-config} through environment variables instead of hard-coded values; \texttt{GET /api/info} returns them together with the active Pod name.
+    \item \textbf{Probes, multi-stage Dockerfile and health endpoint}: Readiness and liveness probes target \texttt{/health}, which returns status and uptime in seconds; the Dockerfile is multi-stage as shown above.
+\end{itemize}
+
+\subsubsection*{Description of the Activity}
+The Ansible role is idempotent. On the run shown below, the JAR copy task reported \texttt{changed}, notifying the \textit{Restart cloudcart} handler, while tasks already in the desired state (Java installation, user, directory, systemd unit) reported \texttt{ok}. Handlers execute only when modified state warrants a daemon restart. Passing \texttt{-e app\_port=9090} overrode the default role port, and querying \texttt{/health} on port 9090 returned \texttt{UP}, proving that runtime variables applied cleanly via the systemd template.
+
+On Kubernetes, \texttt{kubectl apply -f k8s/} created the ConfigMap, Deployment, and Service. Three Pods progressed from \texttt{ContainerCreating} to \texttt{Running} and transitioned to \texttt{1/1} ready once the readiness probe succeeded. The Service exposes NodePort 30080, distributing traffic across replicas: successive calls to \texttt{/api/info} returned distinct Pod hostnames. Scaling to five spawned two new replicas, and scaling back down cleanly terminated extra instances while existing Pods maintained uptime. During the rollback test, the broken image entered \texttt{ErrImagePull}, yet existing replicas continued handling live traffic without outage. Executing \texttt{rollout undo} restored the Deployment to the working ReplicaSet immediately.
+
+Network delays when downloading default CNI images were avoided by starting Minikube with \texttt{--cni=bridge}, and memory allocation was constrained to 1900 MB to operate efficiently on the host system.
+
+\subsection*{Results}
+
+\inlinefig{fig11_ansible_tree.png}{0.88\linewidth}{Figure 11: Role structure generated by ansible-galaxy init (defaults, handlers, tasks, templates)}
+
+\newpage
+
+% ======================================================
+% PAGE 20: RESULTS COMPONENT 2 (FIG 12 - 13)
+% ======================================================
+\inlinefig{fig12_ansible_run.png}{0.92\linewidth}{Figure 12: Ansible run with -e app\_port=9090: failed=0, handler Restart cloudcart executed, and /health and /api/products answering on port 9090}
+
+\vspace{0.4cm}
+
+\inlinefig{fig13_docker_build.png}{0.92\linewidth}{Figure 13: Multi-stage Docker build, images tagged by Jenkins (cloudcart:1-7b3e01a to 4-de82f19), and container responding on /health}
+
+\newpage
+
+% ======================================================
+% PAGE 21: RESULTS COMPONENT 2 (FIG 14 - 15)
+% ======================================================
+\inlinefig{fig14_k8s_startup.png}{0.92\linewidth}{Figure 14: minikube cluster started and application manifests applied}
+
+\vspace{0.4cm}
+
+\inlinefig{fig15_k8s_resources.png}{0.92\linewidth}{Figure 15: Pods created, then kubectl get deployments,services,pods -o wide: 3/3 ready, selector app=cloudcart, NodePort service 80:30080}
+
+\newpage
+
+% ======================================================
+% PAGE 22: RESULTS COMPONENT 2 (FIG 16 - 17 & CONCLUSION)
+% ======================================================
+\inlinefig{fig16_k8s_scaling.png}{0.92\linewidth}{Figure 16: Scaling from 3 to 5 replicas and back to 3, with /api/info answered by different Pods}
+
+\vspace{0.2cm}
+
+\inlinefig{fig17_k8s_rollback.png}{0.92\linewidth}{Figure 17: Rollback: a broken image gives ErrImagePull, kubectl rollout undo recovers, and the ConfigMap message is returned by /api/info}
+
+\vspace{0.2cm}
+
+\subsection*{Conclusion}
+This component highlighted the architectural differences between bare-metal configuration and container orchestration. Ansible made server provisioning repeatable and deterministic through idempotent tasks and conditional handlers. Kubernetes demonstrated declarative self-healing and horizontal scalability. The rollback experiment showed how rolling updates isolate failures and preserve application availability, while ConfigMaps decouple environment configuration from immutable container images.
+
+\newpage
+
+% ======================================================
+% PAGE 23: REFERENCES
 % ======================================================
 \section*{References}
 
 \begin{enumerate}[nosep]
-    \item Jennifer Davis and Katherine Daniels, \textit{Effective DevOps}, 1st Edition, Shroff/O'Reilly Publications, 2021.
-    \item Sanjeev Sharma, \textit{The DevOps Adoption Playbook: A Guide to Adopting DevOps in a Multi-Speed IT Enterprise}, 1st Edition.
-    \item Jez Humble and David Farley, \textit{Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation}, Addison-Wesley Professional.
-    \item Official Git Documentation -- \url{https://git-scm.com/doc}
-    \item Official Jenkins Documentation -- \url{https://www.jenkins.io/doc/}
-    \item Official Ansible Documentation -- \url{https://docs.ansible.com/}
-    \item Official Kubernetes Documentation -- \url{https://kubernetes.io/docs/}
-    \item Official Docker Documentation -- \url{https://docs.docker.com/}
+    \item Git Version Control System Documentation -- \url{https://git-scm.com/doc}
+    \item Apache Maven Build Lifecycle and Plugin Guides -- \url{https://maven.apache.org/guides/}
+    \item Jenkins Automation Server User Handbook -- \url{https://www.jenkins.io/doc/}
+    \item Ansible Community Automation Documentation -- \url{https://docs.ansible.com/ansible/latest/}
+    \item Kubernetes Production Container Orchestration -- \url{https://kubernetes.io/docs/}
+    \item Spring Boot Reference Documentation -- \url{https://spring.io/projects/spring-boot}
+    \item Docker Engine and Multi-Stage Container Packaging -- \url{https://docs.docker.com/}
 \end{enumerate}
 
 \end{document}
