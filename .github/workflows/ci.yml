@@ -1,4 +1,4 @@
-name: Continuous Integration Pipeline
+name: CloudCart CI
 
 on:
   push:
@@ -7,70 +7,27 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
-    name: Build, Test and Package
+  build:
+    name: Build and Verify
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12"]
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: "pip"
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install flake8 pytest-cov
+      - name: Build with Maven
+        run: mvn -B clean package
 
-      - name: Lint with flake8 (Code Quality)
-        run: |
-          # Stop build if there are Python syntax errors or undefined names
-          flake8 app/ --count --select=E9,F63,F7,F82 --show-source --statistics
-          # Exit-zero treats all errors as warnings
-          flake8 app/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-      - name: Run automated unit tests with Pytest
-        run: |
-          python -m pytest -v --junitxml=reports/test-results-${{ matrix.python-version }}.xml tests/
-
-      - name: Package application artifact
-        if: matrix.python-version == '3.12'
-        run: |
-          mkdir -p dist
-          tar -czf dist/todo-api-${{ github.sha }}.tar.gz app/ requirements.txt
-
-      - name: Upload Build Artifact
-        if: matrix.python-version == '3.12'
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: todo-api-build-bundle
-          path: dist/*.tar.gz
+          name: cloudcart-jar
+          path: target/cloudcart.jar
           retention-days: 7
-
-  container-build:
-    name: Container Build & Vulnerability Check
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker image with Commit SHA tag
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: false
-          tags: |
-            todo-api:${{ github.sha }}
-            todo-api:latest

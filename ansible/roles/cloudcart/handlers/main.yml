@@ -1,0 +1,9 @@
+---
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Restart cloudcart
+  ansible.builtin.systemd:
+    name: cloudcart
+    state: restarted

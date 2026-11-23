@@ -1,0 +1,6 @@
+---
+app_port: 8080
+app_dir: /opt/cloudcart
+app_user: cloudcart
+jar_src: "{{ playbook_dir }}/../target/cloudcart.jar"
+app_message: "CloudCart deployed by Ansible"

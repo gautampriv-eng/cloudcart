@@ -1,9 +1,0 @@
----
-# Default variables for todo_app role
-app_name: todo-api
-app_port: 5000
-app_user: devops
-app_group: devops
-app_dir: /opt/todo-api
-app_env: production
-log_level: INFO

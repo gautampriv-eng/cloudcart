@@ -1,0 +1,13 @@
+[Unit]
+Description=CloudCart E-Commerce Service
+After=network.target
+
+[Service]
+User={{ app_user }}
+Environment=SERVER_PORT={{ app_port }}
+Environment=APP_MESSAGE={{ app_message }}
+ExecStart=/usr/bin/java -jar {{ app_dir }}/cloudcart.jar
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
